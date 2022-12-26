@@ -11,6 +11,11 @@ jobs:
     permissions:
       packages: write
       contents: read
+    env:
+      working-directory: ./basic
+    defaults:
+      run:
+        working-directory: ${{ env.working-directory }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
