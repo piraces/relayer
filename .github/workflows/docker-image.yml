@@ -33,13 +33,14 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            piraces/relayer
-            ghcr.io/piraces/relayer
+            piraces/nostr-basic-relayer
+            ghcr.io/piraces/nostr-basic-relayer
       
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         with:
-          context: ./basic/.
+          file: ./basic/Dockerfile
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
